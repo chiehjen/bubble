@@ -1,0 +1,17 @@
+R.f90 solves Rayleight-Plesset eq. using 4th order Runge-Kutta method.
+
+To compile:
+
+gfortran R.f90 -o R.x
+
+To run:
+
+1. Modify fort.10 and fort.99
+2. ./R.x
+
+----------------
+
+  Define dR/dt=Z, then we solve 2nd order ODE by:
+   dR/dt=Z
+   dZ/dt=f . With f=-[1.5*Z^2+4v*Z/R+2*gamm/rho/R+DeltaP(t)/rho]/R .
+ Here DeltaP(t) is given in functional form, all other constants: v, gamm, rho are known (value will be read in).
