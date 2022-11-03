@@ -1,4 +1,4 @@
-!    According to Wikipedia formalism.
+!    Program R.f90  ,   10/2022 Jerry Yang
 !  This code solves Rayleight-Plesset eq. using 4th order Runge-Kutta
 !  method.
 !
@@ -70,8 +70,8 @@
       Zb=Za+k1/6.d0+k2/3.d0+k3/3.d0+k4/6.d0
 
       t=t+h
-!!! For R<0, the bubble will blow up      
-      if(Rb.lt.0.d0) then
+!!! For R<0 or Rb below 1% of its orignal size, the bubble will blow up      
+      if(Rb.lt.0.d0.or.Rb/R0.lt.0.01d0) then
       print*,'blow up at t=',t
       goto 100
       endif
